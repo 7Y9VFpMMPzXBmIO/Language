@@ -23,8 +23,13 @@ namespace IlyasovLanguage
         public ClientPage()
         {
             InitializeComponent();
-            var currentServices = IlyasovLanguageEntities.GetContext().Service.ToList();
+            List<Client> currentClient = IlyasovLanguageEntities.GetContext().Client.ToList();
+            ClientListView.ItemsSource = currentClient;
 
         }
+
+        private void RButtonUp_Checked(object sender, RoutedEventArgs e)
+        {
+                    }
     }
 }

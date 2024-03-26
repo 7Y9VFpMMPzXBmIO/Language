@@ -11,7 +11,10 @@ namespace IlyasovLanguage
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Linq;
+    using System.Windows.Media;
+
+
     public partial class Client
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -28,14 +31,54 @@ namespace IlyasovLanguage
         public string GenderCode { get; set; }
         public string Phone { get; set; }
         public string PhotoPath { get; set; }
-        public Nullable<System.DateTime> Birthday { get; set; }
+        public System.DateTime Birthday { get; set; }
         public string Email { get; set; }
         public System.DateTime RegistrationDate { get; set; }
-    
+
         public virtual Gender Gender { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClientService> ClientService { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tag> Tag { get; set; }
+
+
+        public int VisitCount
+        {
+            get
+            {
+
+                return Convert.ToInt32(IlyasovLanguageEntities.GetContext().ClientService.Where(x => x.ClientID == this.ID).Count());
+            }
+        }
+
+        public string LastVisitDate
+        {
+
+
+
+            get
+            {
+                if (VisitCount == 0)
+                    return "Нет";
+                else
+                    return IlyasovLanguageEntities.GetContext().ClientService.Where(x => x.ClientID == this.ID).Max(p => p.StartTime).ToShortDateString();
+            }
+        }
+        
+        public string Registration
+        {
+            get
+            {
+                return RegistrationDate.ToShortDateString();
+            }
+        }
+
+        public string Birth
+        {
+            get
+            {
+                return Birthday.ToShortDateString();
+            }
+        }
     }
 }

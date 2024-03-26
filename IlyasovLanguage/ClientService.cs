@@ -11,7 +11,7 @@ namespace IlyasovLanguage
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class ClientService
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -33,5 +33,7 @@ namespace IlyasovLanguage
         public virtual ICollection<DocumentByService> DocumentByService { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ProductSale> ProductSale { get; set; }
+
+    
     }
 }

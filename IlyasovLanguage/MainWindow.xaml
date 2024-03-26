@@ -5,17 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IlyasovLanguage"
         mc:Ignorable="d"
-        Title="IlyasovLanguage" Height="450" Width="800" Icon="/Res/school_logo.ico">
+        Title="IlyasovLanguage" Height="450" Width="800" MinHeight="800" MinWidth="1300" Icon="/Res/school_logo.ico">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="75"/>
+            <RowDefinition Height="75" />
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
+
         <Image Source="/Res/school_logo.png" HorizontalAlignment="Left"></Image>
-        <TextBlock Text="Языковая школа" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-        <Frame Grid.Row="1"></Frame>
-        <Frame Grid.Row="1" Name="MainFrame" ContentRendered="MainFrame_ContentRendered" NavigationUIVisibility="Hidden"></Frame>
+        <TextBlock Text="IlyasovLanguage" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        <Frame Grid.Row="1" ></Frame>
+       
+
+        <Frame Grid.Row="1"  Name="MainFrame" ContentRendered="MainFrame_ContentRendered" NavigationUIVisibility="Hidden"></Frame>
    
     </Grid>
 </Window>
