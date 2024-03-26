@@ -14,8 +14,16 @@
             <ColumnDefinition Width="700"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+         
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
 
-        <ListView Name="ClientListView" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="2">
+
+        </Grid.RowDefinitions>
+
+        <ListView Name="ClientListView" Grid.ColumnSpan="3" Grid.Row="1" SelectionChanged="ClientListView_SelectionChanged"  >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -26,62 +34,84 @@
                         </Grid.ColumnDefinitions>
 
                         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-       
-            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
-            <TextBlock Text="ID " FontWeight="Bold"/>
-            <TextBlock Text="{Binding ID}" FontWeight="Bold"/>
-            <TextBlock Text=" " FontWeight="Bold"/>
-            <TextBlock Text="{Binding FirstName}" FontWeight="Bold"/>
-            <TextBlock Text=" " FontWeight="Bold"/>
-            <TextBlock Text="{Binding LastName}" FontWeight="Bold"/>
-            <TextBlock Text=" " FontWeight="Bold"/>
-            <TextBlock Text="{Binding Patronymic}" FontWeight="Bold"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-            <TextBlock Text="Пол: "/>
-            <TextBlock Text="{Binding GenderCode}"/>
-            <TextBlock Text="  Дата рождения: "/>
-            <TextBlock Text="{Binding Birth}"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
-            <TextBlock Text="Телефон: "/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                            <TextBlock Text="ID " FontWeight="Bold"/>
+                            <TextBlock Text="{Binding ID}" FontWeight="Bold"/>
+                            <TextBlock Text=" " FontWeight="Bold"/>
+                            <TextBlock Text="{Binding FirstName}" FontWeight="Bold"/>
+                            <TextBlock Text=" " FontWeight="Bold"/>
+                            <TextBlock Text="{Binding LastName}" FontWeight="Bold"/>
+                            <TextBlock Text=" " FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Patronymic}" FontWeight="Bold"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                            <TextBlock Text="Пол: "/>
+                            <TextBlock Text="{Binding GenderCode}"/>
+                            <TextBlock Text="  Дата рождения: "/>
+                            <TextBlock Text="{Binding Birth}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                            <TextBlock Text="Телефон: "/>
                             <TextBlock Text="{Binding Phone}"/>
                             <TextBlock Text="e-mail: "/>
-            <TextBlock Text="{Binding Email}"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
-            <TextBlock Text="Дата регистрации: "/>
-            <TextBlock Text="{Binding Registration}"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
-            <TextBlock Text="Дата последнего посещения: "/>
+                            <TextBlock Text="{Binding Email}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+                            <TextBlock Text="Дата регистрации: "/>
+                            <TextBlock Text="{Binding Registration}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
+                            <TextBlock Text="Дата последнего посещения: "/>
                             <TextBlock Text="{Binding LastVisitDate}"/>
                             <TextBlock Text="  Количество посещений: "/>
-            <TextBlock Text="{Binding VisitCount}"/>
-        </StackPanel>
-        <Image Width="200" Grid.RowSpan="8" Grid.Column="0" HorizontalAlignment="Center">
-            <Image.Source>
-                <Binding Path="PhotoPath">
-                    <Binding.TargetNullValue>
-                        <ImageSource>
-                            Res/school_logo.png
-                        </ImageSource>
-                    </Binding.TargetNullValue>
-                </Binding>
-            </Image.Source>
-        </Image>
-    </Grid>
+                            <TextBlock Text="{Binding VisitCount}"/>
+                        </StackPanel>
+                        <Button Name="BtnDelete" Content="Удалить" Click="BtnDelete_Click" Grid.Column="3" Grid.Row="7"/>
+                        <Image Width="200" Grid.RowSpan="8" Grid.Column="0" HorizontalAlignment="Center">
+                            <Image.Source>
+                                <Binding Path="PhotoPath">
+                                    <Binding.TargetNullValue>
+                                        <ImageSource>
+                                            Res/school_logo.png
+                                        </ImageSource>
+                                    </Binding.TargetNullValue>
+                                </Binding>
+                            </Image.Source>
+                        </Image>
+                    </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2" Grid.ColumnSpan="3">
+            <TextBlock Text="Выводить по "/>
+            <ComboBox Name="strCount" Width="100" SelectionChanged="strCount_SelectionChanged">
+                <TextBlock>10</TextBlock>
+                <TextBlock>50</TextBlock>
+                <TextBlock>200</TextBlock>
+                <TextBlock>Все</TextBlock>
+            </ComboBox>
+            <TextBlock Name="TBCount" FontSize="20" VerticalAlignment="Center" Height="25"></TextBlock>
+            <TextBlock Text=" из " VerticalAlignment="Center"/>
+            <TextBlock Name="TBAllRecords" FontSize="20" VerticalAlignment="Center" Height="25"></TextBlock>
+            <Button Name="LeftDirButton" Content="&lt;" Width="20" Height="25" Click="LeftDirButton_Click"></Button>
+            <ListBox FontSize="20" Name="PageListBox" MouseUp="PageListBox_MouseUp">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+            </ListBox>
+            <Button Name="RightDirButton" Content="&gt;" Width="20" Height="25" Click="RightDirButton_Click"/>
+        </StackPanel>
     </Grid>
 </Page>

@@ -24,4 +24,4 @@ D:\3 курс\ИСП 3221\Ильясов\Языковая школа\Прогр�
 D:\3 курс\ИСП 3221\Ильясов\Языковая школа\Программа\IlyasovLanguage\obj\Debug\IlyasovLanguage.csproj.CopyComplete
 D:\3 курс\ИСП 3221\Ильясов\Языковая школа\Программа\IlyasovLanguage\obj\Debug\IlyasovLanguage.exe
 D:\3 курс\ИСП 3221\Ильясов\Языковая школа\Программа\IlyasovLanguage\obj\Debug\IlyasovLanguage.pdb
-D:\3 курс\ИСП 3221\Ильясов\Языковая школа\Программа\IlyasovLanguage\obj\Debug\IlyasovLanguage.csprojAssemblyReference.cache
+D:\3 курс\ИСП 3221\Ильясов\Языковая школа\Программа\IlyasovLanguage\obj\Debug\IlyasovLanguage.csproj.AssemblyReference.cache
